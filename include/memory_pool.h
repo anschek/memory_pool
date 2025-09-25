@@ -15,4 +15,5 @@ struct MemoryPool {
 
 MemoryPool* init_pool(size_t total_bytes, size_t block_size);
 void* allocate(MemoryPool* pool);
+void deallocate(MemoryPool* pool, void* ptr);
 #endif //MEMORY_POOL_H
