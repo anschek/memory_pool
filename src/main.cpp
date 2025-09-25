@@ -1,6 +1,5 @@
-#include <iostream>
+#include "../test/tests.h"
 int main() {
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    memory_pool_test_all();
     return 0;
 }
