@@ -4,9 +4,9 @@
 
 #ifndef MEMORY_POOL_H
 #define MEMORY_POOL_H
-#include <iostream>
+#include <cstddef> // size_t
 struct MemoryPool {
-    __int8* memory;
+    char* memory;
     size_t total_size;
     size_t block_size;
     size_t num_blocks;
@@ -17,5 +17,5 @@ MemoryPool* init_pool(size_t total_bytes, size_t block_size);
 void* allocate(MemoryPool* pool);
 void deallocate(MemoryPool* pool, void* ptr);
 void reset_pool(MemoryPool* pool);
-void destroy_pool(MemoryPool* pool);
+void destroy_pool(MemoryPool*& pool);
 #endif //MEMORY_POOL_H
