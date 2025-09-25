@@ -43,3 +43,18 @@ void deallocate(MemoryPool *pool, void *ptr) {
 
     pool->used[index] = false;
 }
+
+void reset_pool(MemoryPool *pool) {
+    for (size_t i = 0; i < pool->num_blocks; ++i)
+        pool->used[i] = false;
+}
+
+void destroy_pool(MemoryPool *pool) {
+    pool->num_blocks = 0;
+    pool->total_size = 0;
+    pool->block_size = 0;
+    delete[] pool->memory;
+    delete[] pool->used;
+    pool->memory = nullptr;
+    pool->used = nullptr;
+}
